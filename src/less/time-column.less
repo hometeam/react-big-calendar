@@ -23,6 +23,7 @@
 
 .rbc-day-slot {
   position: relative;
+  z-index: 0;
 
   .rbc-event {
     border: 1px solid @event-border;
@@ -74,4 +75,20 @@
 
 .rbc-day-slot .rbc-event {
   position: absolute;
+}
+
+.rbc-businesshours-container {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.rbc-businesshours-block {
+  position: absolute;
+  background-color: @businesshours-bg;
+  left: 0;
+  right: 0;
 }

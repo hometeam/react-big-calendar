@@ -223,6 +223,26 @@ let Calendar = React.createClass({
     max: PropTypes.instanceOf(Date),
 
     /**
+     * Emphasizes certain time slots on the calendar.
+     */
+    businessHours: PropTypes.shape({
+      /**
+       * Beginning of the slots
+       */
+      start: PropTypes.instanceOf(Date),
+
+      /**
+       * End of the slots
+       */
+      end: PropTypes.instanceOf(Date),
+
+      /**
+       * What slots of the day this happens
+       */
+      dow: PropTypes.arrayOf(PropTypes.number)
+    }),
+
+    /**
      * Localizer specific formats, tell the Calendar how to format and display dates.
      */
     formats: PropTypes.shape({

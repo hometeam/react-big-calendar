@@ -129,6 +129,12 @@ let dates = Object.assign(dateMath, {
     ))
   },
 
+  diffIgnoreDST(dateA, dateB, unit) {
+    const diff = dates.diff(dateA, dateB, unit);
+
+    return dates.add(diff, dateB.getTimezoneOffset() - dateA.getTimezoneOffset(), 'minutes');
+  },
+
   total(date, unit) {
     let ms = date.getTime()
       , div = 1;

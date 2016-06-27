@@ -20,6 +20,11 @@ let Selectable = React.createClass({
             `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
             `\nend: ${slotInfo.end.toLocaleString()}`
           )}
+          businessHours={{
+            start: new Date(1970, 1, 1, 9),
+            end: new Date(1970, 1, 1, 18),
+            dow: [1, 2, 3, 4, 5]
+          }}
         />
       </div>
     )

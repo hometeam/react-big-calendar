@@ -12,6 +12,7 @@ import { accessor } from './utils/propTypes';
 import { accessor as get } from './utils/accessors';
 
 import TimeColumn from './TimeColumn'
+import BusinessHoursSlots from './BusinessHoursSlots'
 
 function snapToSlot(date, step){
   var roundTo = 1000 * 60 * step;
@@ -91,6 +92,7 @@ let DaySlot = React.createClass({
       now,
       selectRangeFormat,
       culture,
+      businessHours,
       ...props
     } = this.props
     this._totalMin = dates.diff(min, max, 'minutes')
@@ -112,6 +114,9 @@ let DaySlot = React.createClass({
         max={max}
         step={step}
       >
+        { businessHours &&
+          <BusinessHoursSlots {...businessHours} min={min} max={max} />
+        }
         {this.renderEvents()}
         {
           selecting &&
