@@ -148,7 +148,6 @@ let DaySlot = React.createClass({
       let style = this._slotStyle(startSlot, endSlot, lastLeftOffset)
 
       let title = get(event, titleAccessor)
-      let label = localizer.format({ start, end }, eventTimeRangeFormat, culture);
       let _isSelected = isSelected(event, selected);
 
       if (eventPropGetter)
@@ -158,14 +157,13 @@ let DaySlot = React.createClass({
         <div
           key={'evt_' + idx}
           style={{...xStyle, ...style}}
-          title={label + ': ' + title }
+          title={title}
           onClick={this._select.bind(null, event)}
           className={cn('rbc-event', className, {
             'rbc-selected': _isSelected,
             'rbc-event-overlaps': lastLeftOffset !== 0
           })}
         >
-          <div className='rbc-event-label'>{label}</div>
           <div className='rbc-event-content'>
             { EventComponent
               ? <EventComponent event={event} title={title}/>
